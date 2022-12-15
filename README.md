@@ -1,3 +1,0 @@
-# fullstackspringboot
-
-basic angular
