@@ -1,3 +1,1 @@
-# fullstackspringboot
-
-basic angular
+# frontend
