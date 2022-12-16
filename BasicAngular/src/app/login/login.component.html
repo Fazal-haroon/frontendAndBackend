@@ -1,8 +1,9 @@
+<div class="container">
 <div id="wrap">
     <h1>Login to Global Pay</h1>
     <div id="app">
         <div>
-            <small *ngIf="invalidLogin">{{errorMessage}}</small>
+            <div class="alert-warning alert alert-danger" *ngIf="invalidLogin">{{errorMessage}}</div>
             <h2>User Name</h2>
             <input type="text" name="username" [(ngModel)]='username'/>
         </div>
@@ -12,4 +13,5 @@
         </div>
         <button (click)=eventBindingOfLoginOrHandleLogin()>Log in</button>
     </div>
+</div>
 </div>
