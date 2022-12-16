@@ -1,0 +1,15 @@
+<div id="wrap">
+    <h1>Login to Global Pay</h1>
+    <div id="app">
+        <div>
+            <small *ngIf="invalidLogin">{{errorMessage}}</small>
+            <h2>User Name</h2>
+            <input type="text" name="username" [(ngModel)]='username'/>
+        </div>
+        <div>
+            <h2>Password</h2>
+            <input type="password" name="password" [(ngModel)]='password'/>
+        </div>
+        <button (click)=eventBindingOfLoginOrHandleLogin()>Log in</button>
+    </div>
+</div>

@@ -1,0 +1,8 @@
+#wrap {
+    margin: 0 auto;
+    width: 200px;
+}
+#app{
+    position: relative;
+    width: 100%;
+}
