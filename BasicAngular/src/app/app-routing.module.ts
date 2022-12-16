@@ -14,7 +14,7 @@ const routes: Routes = [
     {path: '**', component: ErrorComponent}
 ];
 
-@NgModule({
+@NgModule({ //<!-- NgModule means Angular Module -->
     imports: [RouterModule.forRoot(routes)],
     exports: [RouterModule]
 })
