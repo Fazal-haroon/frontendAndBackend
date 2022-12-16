@@ -1,5 +1,6 @@
 //import org.springframework.boot.SpringApplication;
 import { Component } from '@angular/core';
+import {AppComponent} from '../app.component';
 
 //@ComponentScan(value = "com.example.springboot.app")
 @Component({
