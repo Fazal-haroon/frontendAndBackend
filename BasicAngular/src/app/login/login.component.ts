@@ -7,12 +7,12 @@ import { Component } from '@angular/core';
 })
 export class LoginComponent {
   username : string = 'username1'
-  password : string = 'pass1'
+  password : string = 'password1'
 
   eventBindingOfLoginOrHandleLogin(){
     console.log(this.username);
-    console.log("login success matach")
-    console.log(this.password)
-    console.log("password also match")
+    // console.log("login success matach")
+    // console.log(this.password)
+    // console.log("password also match")
   }
 }
