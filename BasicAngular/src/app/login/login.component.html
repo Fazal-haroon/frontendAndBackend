@@ -3,12 +3,12 @@
     <div id="app">
         <div>
             <h2>User Name</h2>
-            <input type="text" name="username"/>
+            <input type="text" name="username" value="{{username}}"/>
         </div>
         <div>
             <h2>Password</h2>
-            <input type="password" name="password"/>
+            <input type="password" name="password" value="{{password}}"/>
         </div>
-        <button>Log in</button>
+        <button (click) = eventBindingOfLoginOrHandleLogin()>Log in</button>
     </div>
 </div>
