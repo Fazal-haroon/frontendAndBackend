@@ -12,5 +12,12 @@ import {AppComponent} from '../app.component';
 //public class SpringBootApplication {
 export class WelcomeComponent {
 
+  //String message = "some welcome message";
+  message : string = "some welcome message";
+
+  constructor() {
+    console.log(this.message);
+  }
+
 }
 // }
