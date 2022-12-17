@@ -1,10 +1,10 @@
 <header class="header">
     <nav class="navbar navbar-expand-md">
         <ul class="navbar-nav navbar-collapse">
-            <li><a *ngIf="isUserLoggedIn" routerLink="/welcome/fazal" class="nav-link">Home</a></li>
-            <li><a *ngIf="isUserLoggedIn" routerLink="/todos" class="nav-link">Todos</a></li>
-            <li><a *ngIf="!isUserLoggedIn" routerLink="/login" class="nav-link">Login</a></li>
-            <li><a *ngIf="isUserLoggedIn" routerLink="/logout" class="nav-link">Logout</a></li>
+            <li><a *ngIf="hardcodedAuthenticationService.isUserLoggedIn()" routerLink="/welcome/fazal" class="nav-link">Home</a></li>
+            <li><a *ngIf="hardcodedAuthenticationService.isUserLoggedIn()" routerLink="/todos" class="nav-link">Todos</a></li>
+            <li><a *ngIf="!hardcodedAuthenticationService.isUserLoggedIn()" routerLink="/login" class="nav-link">Login</a></li>
+            <li><a *ngIf="hardcodedAuthenticationService.isUserLoggedIn()" routerLink="/logout" class="nav-link">Logout</a></li>
         </ul>
     </nav>
 </header>
