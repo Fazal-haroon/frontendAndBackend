@@ -10,4 +10,17 @@
         click here to get a customized welcome message
         <button (click)="getWelcomeMessage()" class="btn btn-success">Get Welcome Message</button>
     </div>
+    <div *ngIf="welcomeMessageFromService">
+        <h2 >Your Customized Welcome Message</h2>
+        {{welcomeMessageFromService}}
+    </div>
+
+    <div>
+        click here to get a customized welcome message
+        <button (click)="getWelcomeMessage2()" class="btn btn-success">Get Welcome Message</button>
+    </div>
+    <div *ngIf="errorMessageFromService">
+        <h2 >Your Customized Welcome Message</h2>
+        {{errorMessageFromService}}
+    </div>
 </div>

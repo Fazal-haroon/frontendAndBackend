@@ -18,6 +18,8 @@ export class WelcomeComponent implements OnInit {
 
     //String message = "some welcome message";
     message: string = "some welcome message";
+    welcomeMessageFromService : string = '';
+    errorMessageFromService : string = '';
     name: string = ''
 
     //ActivatedRoute
@@ -36,8 +38,33 @@ export class WelcomeComponent implements OnInit {
 
     getWelcomeMessage() {
         console.log(this.service.executeHelloWorldBeanService());
-        this.service.executeHelloWorldBeanService().subscribe();
-        // console.log("get welcome message")
+        this.service.executeHelloWorldBeanService().subscribe(
+            response => this.handleSuccessfulResponse(response)
+            ,
+            error => this.handleErrorResponse(error)
+        );
+        console.log("get welcome message")
+    }
+
+    getWelcomeMessage2() {
+        console.log(this.service.executeHelloWorldBeanErrorService());
+        this.service.executeHelloWorldBeanErrorService().subscribe(
+            response => this.handleSuccessfulResponse(response)
+            ,
+            error => this.handleErrorResponse(error)
+        );
+        console.log("get welcome message")
+    }
+
+    handleSuccessfulResponse(response: any) {
+        this.welcomeMessageFromService = response.message;
+        console.log("response : " + response);
+        console.log("response.message : " + response.message);
+    }
+
+    handleErrorResponse(error: any) {
+        console.log(error);
+        this.errorMessageFromService = error.error.message
     }
 }
 
