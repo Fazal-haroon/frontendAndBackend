@@ -13,6 +13,7 @@ export class TodoComponent implements OnInit{
   id: number = 0;
   todo: Todo = new Todo(0, '', false, new Date())
 
+
   constructor(private todoService: TodoDataService, private route: ActivatedRoute ) {
   }
 
