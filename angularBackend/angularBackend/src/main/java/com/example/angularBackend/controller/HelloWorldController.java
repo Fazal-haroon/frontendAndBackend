@@ -20,7 +20,12 @@ public class HelloWorldController {
     //return bean and automatically converted into JSON and returned
     @GetMapping(path = "/hello-world-bean")
     public HelloWorldBean helloWorldBean(){
-        return new HelloWorldBean("hello world");
+        return new HelloWorldBean("Hello World - Changed");
+    }
+
+    @GetMapping(path = "/hello-world-bean2")
+    public HelloWorldBean helloWorldBean2(){
+        throw new RuntimeException("Some Error has Happened! contact support");
     }
 
     //hello-world/path-variable/fazal
