@@ -1,8 +1,8 @@
 import {Injectable} from '@angular/core';
-import {HttpClient} from "@angular/common/http";
+import {HttpClient, HttpHeaders} from "@angular/common/http";
 
-export class HelloWorldBean{
-    constructor(public message : string) {
+export class HelloWorldBean {
+    constructor(public message: string) {
     }
 }
 
@@ -11,20 +11,42 @@ export class HelloWorldBean{
 })
 export class WelcomeDataService {
 
-    constructor(private http : HttpClient) {
+    constructor(private http: HttpClient) {
     }
 
     executeHelloWorldBeanService() {
-        return this.http.get<HelloWorldBean>('http://localhost:8081/hello-world-bean')
+        let basicAuthHeaderString = this.createBasicAuthenticationHttpHeader();
+        let header = new HttpHeaders({
+                Authorization: basicAuthHeaderString
+            }
+        )
+        return this.http.get<HelloWorldBean>('http://localhost:8081/hello-world-bean',{headers:header})
         // console.log("Execute Hello World Bean Service")
     }
 
-    executeHelloWorldBeanErrorService(){
-        return this.http.get<HelloWorldBean>('http://localhost:8081/hello-world-bean2')
+    executeHelloWorldBeanErrorService() {
+        let basicAuthHeaderString = this.createBasicAuthenticationHttpHeader();
+        let header = new HttpHeaders({
+                Authorization: basicAuthHeaderString
+            }
+        )
+        return this.http.get<HelloWorldBean>('http://localhost:8081/hello-world-bean2',{headers:header})
     }
 
-    executeHelloWorldBeanPathVariableService(name:any){
-        return this.http.get<HelloWorldBean>(`http://localhost:8081/hello-world/path-variable/${name}`)
+    executeHelloWorldBeanPathVariableService(name: any) {
+        let basicAuthHeaderString = this.createBasicAuthenticationHttpHeader();
+        let header = new HttpHeaders({
+                Authorization: basicAuthHeaderString
+            }
+        )
+        return this.http.get<HelloWorldBean>(`http://localhost:8081/hello-world/path-variable/${name}`,{headers:header})
+    }
+
+    createBasicAuthenticationHttpHeader() {
+        let username = 'user'
+        let password = 'user'
+        let basicAuthHeaderString = 'Basic ' + window.btoa(`${username}:${password}`);
+        return basicAuthHeaderString;
     }
 
 }
