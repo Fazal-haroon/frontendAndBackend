@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from "@angular/router";
 import {HardcodedAuthenticationService} from "../service/hardcoded-authentication.service";
+import {BasicAuthenticationService} from "../service/basic-authentication.service";
 
 @Component({
   selector: 'app-login',
@@ -16,7 +17,7 @@ export class LoginComponent implements OnInit{
   //Router
   //Angular.giveMeRouter
   //Dependency Injection
-  constructor(private router : Router, public hardcodedAuthenticationService: HardcodedAuthenticationService) {
+  constructor(private router : Router, public hardcodedAuthenticationService: HardcodedAuthenticationService, private basicAuthenticationService:BasicAuthenticationService) {
   }
 
   eventBindingOfLoginOrHandleLogin(){
@@ -33,6 +34,22 @@ export class LoginComponent implements OnInit{
     }
     // console.log(this.password)
     // console.log("password also match")
+  }
+
+  HandleBasicLogin(){
+    console.log(this.username);
+   this.basicAuthenticationService.executeAuthenticationService(this.username, this.password)
+       .subscribe(
+           data => {
+             console.log(data)
+             this.router.navigate(['welcome', this.username])
+             this.invalidLogin = false
+             console.log(this.invalidLogin)
+           }, error => {
+             this.invalidLogin = true
+             console.log(error)
+           }
+       )
   }
 
   ngOnInit(): void {
