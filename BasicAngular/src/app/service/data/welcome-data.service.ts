@@ -15,38 +15,17 @@ export class WelcomeDataService {
     }
 
     executeHelloWorldBeanService() {
-        let basicAuthHeaderString = this.createBasicAuthenticationHttpHeader();
-        let header = new HttpHeaders({
-                Authorization: basicAuthHeaderString
-            }
-        )
-        return this.http.get<HelloWorldBean>('http://localhost:8081/hello-world-bean',{headers:header})
+        return this.http.get<HelloWorldBean>('http://localhost:8081/hello-world-bean')
         // console.log("Execute Hello World Bean Service")
     }
 
     executeHelloWorldBeanErrorService() {
-        let basicAuthHeaderString = this.createBasicAuthenticationHttpHeader();
-        let header = new HttpHeaders({
-                Authorization: basicAuthHeaderString
-            }
-        )
-        return this.http.get<HelloWorldBean>('http://localhost:8081/hello-world-bean2',{headers:header})
+        return this.http.get<HelloWorldBean>('http://localhost:8081/hello-world-bean2')
     }
 
     executeHelloWorldBeanPathVariableService(name: any) {
-        let basicAuthHeaderString = this.createBasicAuthenticationHttpHeader();
-        let header = new HttpHeaders({
-                Authorization: basicAuthHeaderString
-            }
-        )
-        return this.http.get<HelloWorldBean>(`http://localhost:8081/hello-world/path-variable/${name}`,{headers:header})
+        return this.http.get<HelloWorldBean>(`http://localhost:8081/hello-world/path-variable/${name}`)
     }
 
-    createBasicAuthenticationHttpHeader() {
-        let username = 'user'
-        let password = 'user'
-        let basicAuthHeaderString = 'Basic ' + window.btoa(`${username}:${password}`);
-        return basicAuthHeaderString;
-    }
 
 }
