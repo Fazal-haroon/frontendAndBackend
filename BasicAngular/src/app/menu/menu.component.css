@@ -4,3 +4,11 @@
     width: 100%;
     background-color: #222222;
 }
+
+li{
+    padding: 10px;
+}
+
+ul{
+    list-style: none;
+}
