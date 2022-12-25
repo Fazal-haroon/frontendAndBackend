@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {TodoDataService} from "../service/data/todo-data.service";
 import {Router} from "@angular/router";
+import {BasicAuthenticationService} from "../service/basic-authentication.service";
 
 
 export class Todo {
@@ -29,7 +30,7 @@ export class ListTodosComponent implements OnInit{
   //   // {id : 3, description: "Learn to code in frontend"}
   // ]
 
-  constructor(private todoService:TodoDataService, private router:Router) {
+  constructor(private todoService:TodoDataService, private router:Router, private basicAuthenticationService: BasicAuthenticationService) {
   }
 
   ngOnInit(): void {
@@ -37,7 +38,8 @@ export class ListTodosComponent implements OnInit{
   }
 
   refreshTodos(){
-      this.todoService.retrieveAllTodos("fazal").subscribe(
+      let user = this.basicAuthenticationService.getAuthenticatedUser()
+      this.todoService.retrieveAllTodos(user).subscribe(
           response => {
               console.log(response);
               this.todos = response;

@@ -20,7 +20,7 @@ export class TodoComponent implements OnInit {
     ngOnInit() {
         this.id = this.route.snapshot.params['id']
         if (this.id != -1) {
-            this.todoService.retrieveTodo('fazal', this.id).subscribe(
+            this.todoService.retrieveTodo('HaroonJwtExpert', this.id).subscribe(
                 data => {
                     this.todo = data
                     console.log(this.todo)
