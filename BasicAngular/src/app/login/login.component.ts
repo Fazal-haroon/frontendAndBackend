@@ -51,6 +51,21 @@ export class LoginComponent implements OnInit{
            }
        )
   }
+  HandleJwtAuthLogin(){
+    console.log(this.username);
+   this.basicAuthenticationService.executeJWTAuthenticationService(this.username, this.password)
+       .subscribe(
+           data => {
+             console.log(data)
+             this.router.navigate(['welcome', this.username])
+             this.invalidLogin = false
+             console.log(this.invalidLogin)
+           }, error => {
+             this.invalidLogin = true
+             console.log(error)
+           }
+       )
+  }
 
   ngOnInit(): void {
   }
