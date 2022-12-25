@@ -55,7 +55,8 @@ export class ListTodosComponent implements OnInit{
 
   deleteTodo(todoId: number) {
       console.log(`delete todo ${todoId}`)
-      this.todoService.deleteTodo("fazal", todoId).subscribe(
+      let user = this.basicAuthenticationService.getAuthenticatedUser()
+      this.todoService.deleteTodo(user, todoId).subscribe(
           response => {
               console.log(response);
               this.message = `Delete of Todo ${todoId} Successful!`;
